@@ -14,3 +14,8 @@ This repository contains various system design problems, including both high-lev
 
   - [LLD](./Notification/LLD)
 </details>
+<details>
+  <summary><a href="./PubSubSystem/README.md">Pub/Sub System (LLD+HLD)</a></summary>
+
+  - [LLD](./PubSubSystem/LLD)
+</details>
