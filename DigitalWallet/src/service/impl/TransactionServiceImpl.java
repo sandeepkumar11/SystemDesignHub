@@ -16,7 +16,7 @@ import strategy.impl.UUIDIdGenerator;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
-
+// TODO: Handle concurrency issues, e.g., using synchronized blocks or locks
 public class TransactionServiceImpl implements TransactionService {
 
     private final TransactionRepository<Transaction> transactionRepository;

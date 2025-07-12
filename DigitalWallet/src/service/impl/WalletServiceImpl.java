@@ -7,7 +7,7 @@ import repository.UserRepository;
 import repository.WalletRepository;
 import service.UserService;
 import service.WalletService;
-
+// TODO: Handle concurrency issues, e.g., using synchronized blocks or locks
 public class WalletServiceImpl implements WalletService {
 
     private final WalletRepository walletRepository;
