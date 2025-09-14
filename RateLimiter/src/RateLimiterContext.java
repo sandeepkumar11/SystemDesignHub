@@ -1,3 +1,4 @@
+import dto.Response;
 import strategy.RateLimiter;
 
 public class RateLimiterContext {
@@ -7,7 +8,10 @@ public class RateLimiterContext {
         this.rateLimiter = rateLimiter;
     }
 
-    public boolean allowRequest(String clientId){
-        return rateLimiter.allowRequest(clientId);
+    public Response allowRequest(String clientId){
+         if(rateLimiter.allowRequest(clientId)){
+             return new Response( "Accepted");
+         }
+         return new Response("HTTP 429 Too Many Requests");
     }
 }

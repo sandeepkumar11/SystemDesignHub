@@ -1,4 +1,4 @@
-package request;
+package dto;
 
 public class Request {
     private final String clientId;
