@@ -4,9 +4,11 @@ import repository.UrlRepository;
 import service.UrlProcessor;
 
 import java.util.Random;
+import java.util.logging.Logger;
 
 public class UrlShortenerService implements UrlProcessor {
 
+    private static final Logger logger = Logger.getLogger(UrlShortenerService.class.getName());
     private final UrlRepository repository;
 
     public UrlShortenerService(UrlRepository repository) {
@@ -16,7 +18,7 @@ public class UrlShortenerService implements UrlProcessor {
     @Override
     public String process(String url) {
         if (repository.hasUrl(url)) {
-            System.out.println("[debug] " + url + " exists.");
+            logger.info("[debug] " + url + " exists.");
             return repository.findByLongUrl(url)
                     .orElseThrow(() -> new RuntimeException("Short URL not found for: " + url));
         }
