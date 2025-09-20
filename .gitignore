@@ -3,9 +3,9 @@
 *.iml
 
 # Build output
-/out/
-/target/
-/build/
+**/out/
+**/target/
+**/build/
 
 # Maven
 .mvn/
