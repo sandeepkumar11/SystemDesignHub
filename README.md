@@ -1,21 +1,28 @@
 # SystemDesignHub
 
-This repository contains various system design problems, including both high-level design (HLD) and low-level design (LLD) problems. The goal is to provide a comprehensive set of examples and solutions to help you prepare for system design interviews and improve your understanding of system architecture.
+SystemDesignHub is a curated collection of system design problems and their low-level design (LLD) solutions.
+Each module demonstrates practical implementation strategies, design patterns, and best practices in Java, helping you master the technical aspects required for system design interviews and real-world software architecture.
 
-## Table of Contents
+## Modules
 
-<details>
-  <summary><a href="./DiscountCalculator/README.md">Discount Service (LLD+HLD)</a></summary>
+Explore individual modules and their detailed documentation:
 
-  - [LLD](./DiscountCalculator/LLD)
-</details>
-<details>
-  <summary><a href="./Notification/README.md">Notification Service (LLD+HLD)</a></summary>
+- ### [Auction System](./AuctionSystem/README.md)
+- ### [Conference Room Booking](./ConferenceRoomBookingSystem/README.md)
+- ### [Digital Wallet](./DigitalWallet/README.md)
+- ### [Discount Calculator](./DiscountCalculator/README.md)
+- ### [Distributed Task Queue](./DistributedTaskQueue/README.md)
+- ### [Expense Manager](./ExpenseManager/README.md)
+- ### [Locker Delivery System](./Locker Delivery System/README.md)
+- ### [Notification System](./Notification/README.md)
+- ### [Pub/Sub System](./PubSubSystem/README.md)
+- ### [Rate Limiter](./RateLimiter/README.md)
+- ### [URL Shortener](./UrlShotner/README.md)
 
-  - [LLD](./Notification/LLD)
-</details>
-<details>
-  <summary><a href="./PubSubSystem/README.md">Pub/Sub System (LLD+HLD)</a></summary>
 
-  - [LLD](./PubSubSystem/LLD)
-</details>
+## Getting Started
+
+Each module includes its own `README.md` with setup instructions, usage examples, and design details.  
+Modules are implemented in Java (Java 8+).
+
+
