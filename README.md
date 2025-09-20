@@ -13,11 +13,11 @@ Explore individual modules and their detailed documentation:
 - ### [Discount Calculator](./DiscountCalculator/README.md)
 - ### [Distributed Task Queue](./DistributedTaskQueue/README.md)
 - ### [Expense Manager](./ExpenseManager/README.md)
-- ### [Locker Delivery System](./Locker Delivery System/README.md)
+- ### [Locker Delivery System](./LockerDeliverySystem/README.md)
 - ### [Notification System](./Notification/README.md)
 - ### [Pub/Sub System](./PubSubSystem/README.md)
 - ### [Rate Limiter](./RateLimiter/README.md)
-- ### [URL Shortener](./UrlShotner/README.md)
+- ### [URL Shortener](./UrlShortner/README.md)
 
 
 ## Getting Started
