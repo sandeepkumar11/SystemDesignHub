@@ -1,8 +1,8 @@
 package controller;
 
 import repository.UrlRepository;
-import service.iml.UrlResolverService;
-import service.iml.UrlShortenerService;
+import service.impl.UrlResolverService;
+import service.impl.UrlShortenerService;
 
 public class UrlController {
     private final UrlRepository repository = new UrlRepository(); // It should be injected in the service layer
