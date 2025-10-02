@@ -6,6 +6,7 @@ import entity.Message;
 import service.NotificationService;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 public class NotificationServiceImpl implements NotificationService {
@@ -24,6 +25,17 @@ public class NotificationServiceImpl implements NotificationService {
 //        message.setTimestamp(Instant.now());
         System.out.println("Sending notification via KafkaChannel: " + message.getMessageId());
         kafkaChannel.notify(message);
+    }
+
+    @Override
+    public void notifyBulk(List<NotificationRequest> requests) {
+        for (NotificationRequest request : requests) {
+            try {
+                notify(request);
+            } catch (IllegalArgumentException e) {
+                System.err.println("Failed to send notification: " + e.getMessage());
+            }
+        }
     }
 
     private void validateRequest(NotificationRequest request) {
