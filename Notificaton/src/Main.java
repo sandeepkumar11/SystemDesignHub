@@ -22,21 +22,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to the Notification System!");
 
-        TemplateEngine templateEngine = new TemplateEngine();
-        NotificationChannel emailChannel = new EmailChannel(new EmailProvider(), templateEngine);
-        NotificationChannel smsChannel = new SmsChannel(new SmsProvider(), templateEngine);
-        NotificationChannel pushChannel = new PushChannel(new PushProvider(), templateEngine);
-
-        ChannelRepository channelRepository = new ChannelRepository();
-        ChannelService channelService = new ChannelServiceImpl(channelRepository);
-        channelService.addChannel(emailChannel);
-        channelService.addChannel(smsChannel);
-        channelService.addChannel(pushChannel);
-
-        ChannelStrategy channelStrategy = new ChannelStrategyImpl(channelService);
-
-        NotificationCoordinator coordinator = new NotificationCoordinator( channelStrategy
-        );
+        NotificationCoordinator coordinator = getCoordinator();
 
         Message highPriorityMessage = new Message.MessageBuilder()
                 .setRecipient("high@example.com")
@@ -65,5 +51,23 @@ public class Main {
         coordinator.processHighPriorityMessage(highPriorityMessage);
         coordinator.processMediumPriorityMessage(mediumPriorityMessage);
         coordinator.processLowPriorityMessage(lowPriorityMessage);
+    }
+
+    private static NotificationCoordinator getCoordinator() {
+        TemplateEngine templateEngine = new TemplateEngine();
+        NotificationChannel emailChannel = new EmailChannel(new EmailProvider(), templateEngine);
+        NotificationChannel smsChannel = new SmsChannel(new SmsProvider(), templateEngine);
+        NotificationChannel pushChannel = new PushChannel(new PushProvider(), templateEngine);
+
+        ChannelRepository channelRepository = new ChannelRepository();
+        ChannelService channelService = new ChannelServiceImpl(channelRepository);
+        channelService.addChannel(emailChannel);
+        channelService.addChannel(smsChannel);
+        channelService.addChannel(pushChannel);
+
+        ChannelStrategy channelStrategy = new ChannelStrategyImpl(channelService);
+
+        return new NotificationCoordinator( channelStrategy
+        );
     }
 }
