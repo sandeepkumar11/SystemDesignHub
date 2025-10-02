@@ -9,5 +9,4 @@ public interface ChannelStrategy {
 
     NotificationChannel getChannel(Message message);
 
-    void addChannel(NotificationChannel channel);
 }

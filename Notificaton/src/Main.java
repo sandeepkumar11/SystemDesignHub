@@ -10,6 +10,9 @@ import helper.TemplateEngine;
 import provides.impl.EmailProvider;
 import provides.impl.PushProvider;
 import provides.impl.SmsProvider;
+import repository.ChannelRepository;
+import service.ChannelService;
+import service.impl.ChannelServiceImpl;
 import strategy.ChannelStrategy;
 import strategy.impl.ChannelStrategyImpl;
 
@@ -24,9 +27,13 @@ public class Main {
         NotificationChannel smsChannel = new SmsChannel(new SmsProvider(), templateEngine);
         NotificationChannel pushChannel = new PushChannel(new PushProvider(), templateEngine);
 
-        ChannelStrategy channelStrategy = new ChannelStrategyImpl(List.of(
-                emailChannel, smsChannel, pushChannel
-        ));
+        ChannelRepository channelRepository = new ChannelRepository();
+        ChannelService channelService = new ChannelServiceImpl(channelRepository);
+        channelService.addChannel(emailChannel);
+        channelService.addChannel(smsChannel);
+        channelService.addChannel(pushChannel);
+
+        ChannelStrategy channelStrategy = new ChannelStrategyImpl(channelService);
 
         NotificationCoordinator coordinator = new NotificationCoordinator( channelStrategy
         );

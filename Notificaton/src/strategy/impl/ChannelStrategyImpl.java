@@ -3,6 +3,7 @@ package strategy.impl;
 import channel.NotificationChannel;
 import entity.Message;
 import enums.ChannelType;
+import service.ChannelService;
 import strategy.ChannelStrategy;
 
 import java.util.List;
@@ -11,19 +12,16 @@ import java.util.stream.Collectors;
 
 public class ChannelStrategyImpl implements ChannelStrategy {
 
-    private final Map<ChannelType, NotificationChannel> channels;
+    private final ChannelService channelService;
 
-    public ChannelStrategyImpl(List<NotificationChannel> channelList) {
-        this.channels = channelList.stream()
-                .collect(Collectors.toMap(
-                        channel -> ChannelType.valueOf(channel.getType()),
-                        channel -> channel));
+    public ChannelStrategyImpl(ChannelService channelService) {
+        this.channelService = channelService;
 
     }
 
     @Override
     public NotificationChannel getChannel(String channelType) {
-        return channels.get(ChannelType.valueOf(channelType));
+        return getChannels().get(ChannelType.valueOf(channelType));
     }
 
     @Override
@@ -31,8 +29,11 @@ public class ChannelStrategyImpl implements ChannelStrategy {
         return getChannel(message.getChannelType().toString());
     }
 
-    @Override
-    public void addChannel(NotificationChannel channel) {
-        channels.putIfAbsent(ChannelType.valueOf(channel.getType()), channel);
+    private Map<ChannelType, NotificationChannel> getChannels() {
+        List<NotificationChannel> channelList = channelService.getAllChannels();
+        return channelList.stream().collect(Collectors.toMap(
+                ch -> ChannelType.valueOf(ch.getType()),
+                ch -> ch
+        ));
     }
 }
