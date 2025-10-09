@@ -16,6 +16,6 @@ public class GroupValidation {
 
     public boolean isUserInGroup(String groupId, String userId) {
         // Placeholder for actual check if user belongs to the group
-        return true;
+        return false;
     }
 }

@@ -9,7 +9,7 @@ public interface GroupService {
 
     GroupResponse getGroupById(String groupId);
 
-    void createGroup(GroupRequest request);
+    GroupResponse createGroup(GroupRequest request);
 
     void addMemberToGroup(String groupId, String memberId);
 

@@ -6,7 +6,7 @@ import dto.response.ExpenseResponse;
 import java.util.List;
 
 public interface ExpenseService {
-    void addExpense(ExpenseRequest request);
+    ExpenseResponse addExpense(ExpenseRequest request);
 
     void settleExpense(String expenseId);
 

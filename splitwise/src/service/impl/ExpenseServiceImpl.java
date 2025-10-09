@@ -30,7 +30,7 @@ public class ExpenseServiceImpl implements ExpenseService {
     }
 
     @Override
-    public void addExpense(ExpenseRequest request) {
+    public ExpenseResponse addExpense(ExpenseRequest request) {
         String expenseId = generateExpenseId();
         String groupId = request.getGroupId();
         if (expenseRepository.existsById(expenseId)) {
@@ -59,6 +59,15 @@ public class ExpenseServiceImpl implements ExpenseService {
                 groupId
         );
         expenseRepository.save(expense);
+        return new ExpenseResponse(
+                expense.getId(),
+                expense.getDescription(),
+                expense.getAmount(),
+                expense.getPaidBy(),
+                expense.getGroupId(),
+                expense.getTimestamp().toString(),
+                String.join(", ", expense.getParticipants())
+        );
     }
 
     @Override

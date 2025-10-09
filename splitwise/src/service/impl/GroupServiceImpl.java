@@ -34,7 +34,7 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public void createGroup(GroupRequest request) {
+    public GroupResponse createGroup(GroupRequest request) {
         String groupId = generateGroupId();
         if (groupRepository.existsById(groupId)) {
             throw new ItemExists("Generated group ID already exists. Try again.");
@@ -46,6 +46,7 @@ public class GroupServiceImpl implements GroupService {
         Set<String> members = new HashSet<>(request.getMembers());
         Group group = new Group(groupId, request.getName(), request.getDescription(), members);
         groupRepository.save(group);
+        return new GroupResponse(group.getId(), group.getName(), group.getDescription(), String.join(", ", members));
     }
 
     @Override
