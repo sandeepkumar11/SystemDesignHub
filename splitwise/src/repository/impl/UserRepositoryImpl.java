@@ -25,6 +25,12 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    public boolean existsByEmail(String email) {
+        return userStore.values().stream()
+                .anyMatch(user -> user.getEmail().equals(email));
+    }
+
+    @Override
     public Optional<User> findByEmail(String email) {
         return userStore.values().stream()
                 .filter(user -> user.getEmail().equals(email))
@@ -36,9 +42,4 @@ public class UserRepositoryImpl implements UserRepository {
         userStore.remove(userId);
     }
 
-    @Override
-    public boolean existsByEmail(String email) {
-        return userStore.values().stream()
-                .anyMatch(user -> user.getEmail().equals(email));
-    }
 }
