@@ -12,11 +12,11 @@ Explore individual modules and their detailed documentation:
 - ### [Digital Wallet](./DigitalWallet/README.md)
 - ### [Discount Calculator](./DiscountCalculator/README.md)
 - ### [Distributed Task Queue](./DistributedTaskQueue/README.md)
-- ### [Expense Manager](./ExpenseManager/README.md)
 - ### [Locker Delivery System](./LockerDeliverySystem/README.md)
 - ### [Notification System](./Notification/README.md)
 - ### [Pub/Sub System](./PubSubSystem/README.md)
 - ### [Rate Limiter](./RateLimiter/README.md)
+- ### [Split Wise](./splitwise/README.md)
 - ### [URL Shortener](./UrlShortner/README.md)
 
 
