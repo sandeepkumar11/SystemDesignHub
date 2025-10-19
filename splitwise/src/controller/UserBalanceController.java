@@ -1,8 +1,6 @@
 package controller;
 
-import repository.UserBalanceRepository;
 import service.UserBalanceService;
-import service.impl.UserBalanceServiceImpl;
 
 public class UserBalanceController {
     private final UserBalanceService userBalanceService;
